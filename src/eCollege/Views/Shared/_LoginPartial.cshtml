@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using eCollege.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="">
+        <ul class="nav navbar-nav">
+            <li>
+                <button style="color:white;text-decoration-line:none" type="submit" class="btn btn-link navbar-btn navbar-link" >تسجيل الخروج</button>
+            </li>
+            <li>
+                <a dir="rtl" class="" asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">مرحبا @UserManager.GetUserName(User)!</a>
+            </li>
+
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav">
+        <li><a class="" asp-area="" asp-controller="Account" asp-action="Login">تسجيل الدخول</a></li>
+        <li><a class="" asp-area="" asp-controller="Account" asp-action="Register">التسجيل</a></li>
+
+    </ul>
+}

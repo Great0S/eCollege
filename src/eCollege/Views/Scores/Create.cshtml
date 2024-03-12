@@ -1,0 +1,88 @@
+﻿@model eCollege.Data.Score
+
+@{
+    ViewData["Title"] = "النتيجة";
+}
+
+<div dir="rtl" class="mdc-layout-grid">
+    <form asp-action="Create" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-elevation--z3">
+                <div class="mdc-layout-grid">
+                    <div class="mdc-card mdc-layout-grid__cell--span-12 mdl-color--light-blue sec-bar">
+                        <h3>إضافة نتيجة</h3>
+                    </div>
+                    <hr class="mdc-layout-grid__cell--span-12" />
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5" style="width:100%">
+                        <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="Id" class="mdc-textfield__label">المعرف</label>
+                            <input required pattern=".{1,}" aria-controls="id-msg" asp-for="Id" class="mdc-textfield__input" />
+                        </div>
+                        <p class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert" id="id-msg">
+                            إدخال المعرف
+                        </p>
+                    </section>
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5" style="width:100%">
+                        <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="RegId" class="mdc-textfield__label">رقم التسجيل</label>
+                            <input required pattern=".{1,}" aria-controls="id-msg" asp-for="RegId" class="mdc-textfield__input" />
+                        </div>
+                        <p class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert" id="id-msg">
+                            إدخال رقم التسجيل
+                        </p>
+                    </section>
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+                        <div class="" style="width:100%">
+                            <label asp-for="SubId" class="control-label">المقرر</label>
+                            <select asp-for="SubId" class="form-control" asp-items="ViewBag.SubId"></select>
+                        </div>
+                        <p class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert" id="name-msg">
+                            إختيار اسم المقرر
+                        </p>
+                    </section>
+                </div>
+                <div class="mdc-layout-grid">
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+                        <div class="mdc-textfield" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="Semester" class="mdc-textfield__label">السمستر</label>
+                            <input asp-for="Semester" class="mdc-textfield__input" />
+                            <span asp-validation-for="Semester" class="text-danger" />
+                        </div>
+                    </section>
+
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+                        <div class="mdc-textfield" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="Grade" class="mdc-textfield__label">الدرجة</label>
+                            <input asp-for="Grade" class="mdc-textfield__input" />
+                            <span asp-validation-for="Grade" class="text-danger" />
+                        </div>
+                    </section>
+                </div>
+                <div class="mdc-layout-grid">
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+                        <div class="mdc-textfield" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="Hours" class="mdc-textfield__label">الساعات المعتمدة</label>
+                            <input asp-for="Hours" class="mdc-textfield__input" />
+                            <span asp-validation-for="Hours" class="text-danger" />
+                        </div>
+                    </section>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                            <input type="submit" value="إضافة" style="font-family:'Segoe UI'" class="mdc-button mdc-button--primary mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" />
+                        </div>
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                            <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-action="Index">إلغاء</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

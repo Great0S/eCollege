@@ -1,0 +1,126 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "التسجيل";
+}
+
+<div class="mdc-layout-grid" dir="rtl">
+    <div class="mdc-card mdc-layout-grid__cell--span-12 mdc-theme--accent-bg sec-bar">
+        <h3 class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">إنشاء حساب جديد</h3>
+    </div>
+    <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <div class="mdc-layout-grid">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1"></div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10 mdc-elevation--z3">
+                        <div class="mdc-layout-grid">
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.Register_id, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.Register_id, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.SName, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.SName, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                        </div>
+                        <div class="mdc-layout-grid">
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    <label asp-for="Email" class="mdc-textfield__label"></label>
+                                    <input asp-for="Email" type="email" class="mdc-textfield__input" />
+                                </div>
+                                <p></p>
+                            </section>
+                        </div>
+                        <div class="mdc-layout-grid">
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    <label asp-for="Password" class="mdc-textfield__label"></label>
+                                    <input asp-for="Password" type="password" class="mdc-textfield__input" />
+                                </div>
+                                <p id="Password" class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert"></p>
+                            </section>
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    <label asp-for="ConfirmPassword" class="mdc-textfield__label"></label>
+                                    <input asp-for="ConfirmPassword" type="password" class="mdc-textfield__input" />
+                                </div>
+                                <p id="Password" class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert"></p>
+                            </section>
+                        </div>
+                        <div class="mdc-layout-grid">
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.SAddress, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.SAddress, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.SReligon, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.SReligon, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                        </div>
+                        <div class="mdc-layout-grid">
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.SBirthDate, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.SBirthDate, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.SGender, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.SGender, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                        </div>
+                        <div class="mdc-layout-grid">
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6" style="width:100%">
+                                <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                                    @Html.LabelFor(m => m.SNationality, new { @class = "mdc-textfield__label" })
+                                    @Html.TextBoxFor(m => m.SNationality, new { @class = "mdc-textfield__input" })
+                                </div>
+                            </section>
+                            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5" style="width:100%">
+                                <div class="" style="width:100%">
+                                    @Html.LabelFor(m => m.SPhoto, new { @class = "control-label" })
+                                    <input type="file" name="Photo" id="fileUpload" accept="image/*" />
+                                </div>
+                            </section>
+                        </div>
+                        <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5" style="width:100%">
+                            <div class="" style="width:100%">
+                                @Html.LabelFor(m => m.UserRoles, new { @class = "control-label" })
+                                @Html.DropDownListFor(m => m.UserRoles, new SelectList(new List<SelectListItem>
+  {
+      new SelectListItem { Text = "موظف" , Value = "Registerator"},
+      new SelectListItem { Text = "طالب", Value = "Student" }
+  },
+    "Value", // property to be set as Value of dropdown item
+    "Text"  // property to be used as text of dropdown item
+   ), new { @class = "form-control" })
+                            </div>
+                        </section>
+                        <div class="mdc-layout-grid">
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                                <input type="submit" value="تسجيل" style="font-family:'Segoe UI';font-size:15px;text-decoration-line:none" class="mdc-button mdc-button--primary mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

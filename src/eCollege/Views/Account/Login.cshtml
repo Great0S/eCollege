@@ -1,0 +1,70 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "تسجيل الدخول";
+}
+        <div class="mdc-layout-grid" dir="rtl">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdl-shadow--2dp">
+                <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="mdc-layout-grid" style="padding:0px !important">
+                    <h2 class="sec-bar head mdc-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-theme--primary-bg" style="padding:0px !important">تسجيل الدخول</h2>
+                     <h4 class="mdc-card__primary mdc-layout-grid__cell mdc-layout-grid__cell--span-12">ادخل بيانات حسابك الشخصية</h4>
+                    <hr class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" />
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12"  style="padding-left:16px !important;padding-right:16px !important">
+                        <div class="mdc-textfield" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="Reg_id" class="mdc-textfield__label">اسم المستخدم</label>
+                            <input required aria-controls="email-msg" asp-for="Reg_id" class="mdc-textfield__input" />
+                        </div>
+                        <p class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert" id="email-msg">
+                            الرجاء إدخال اسم المستخدم
+                        </p>
+                    </section>
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12"  style="padding-left:16px !important;padding-right:16px !important">
+                        <div class="mdc-textfield" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="Password" class="mdc-textfield__label">كلمة السر</label>
+                            <input required pattern=".{8,}" aria-controls="password-msg" asp-for="Password" class="mdc-textfield__input" />
+                        </div>
+                        <p class="mdc-textfield-helptext mdc-textfield-helptext--validation-msg" role="alert" id="password-msg">
+                            يجب أن تكون كلمة السر على الافل 8 أحرف
+                        </p>
+                    </section>
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <div class="mdc-form-field">
+                            <div class="mdc-checkbox mdc-checkbox--upgraded" id="mdc-js-checkbox" data-mdc-auto-init="MDCCheckbox">
+                                <input type="checkbox" class="mdc-checkbox__native-control" asp-for="RememberMe" />
+                                <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark"
+                                         viewBox="0 0 24 24">
+                                        <path class="mdc-checkbox__checkmark__path"
+                                              fill="none"
+                                              stroke="white"
+                                              d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <label asp-for="RememberMe" class="mdl-checkbox__label" style="padding-right:32px;">تذكر بياناتي ؟</label>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <div class="mdc-layout-grid">
+                            <button type="submit" style="font-family:'Noto Kufi Arabic'" data-mdc-auto-init="MDCRipple" class="mdc-button mdc-ripple-surface mdc-button--raised mdc-button--primary mdc-layout-grid__cell mdc-layout-grid__cell--span-12">دخول</button>
+                        </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <div class="mdc-layout-grid">
+                            <a class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">تسجيل </a>
+                            <a class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4" asp-action="ForgotPassword">نسيت كلمة السر ؟</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+        </div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

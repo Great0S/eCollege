@@ -1,0 +1,84 @@
+﻿@model IEnumerable<eCollege.Data.Score>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div dir="rtl" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid">
+        <div class="mdc-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdl-color--blue-grey sec-bar">
+            <h3>
+                النتيجة
+            </h3>
+        </div>
+        <hr class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" />
+        <p class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--accent mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-action="Create">إضافة</a>
+        </p>
+    </div>
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1"></div>
+       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp is-upgraded" style="width:100%" data-upgraded="MaterialDataTable">
+            <thead class="mdl-color--blue" style="color:white">
+                <tr>
+                    <th>
+                        المعرف 
+                    </th>
+                    <th>
+                        رقم التسجيل
+                    </th>
+                    <th>
+                        المقرر
+                    </th>
+                    <th>
+                        السمستر
+                    </th>
+                    <th>
+                        الساعات المعتمدة
+                    </th>
+                    <th>
+                        الدرجة
+                    </th>
+                    <th>
+                        المعدل الفصلي
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+@foreach (var item in Model)
+{
+                     <tr>
+                         <td>
+                             @Html.DisplayFor(model => item.Id)
+                         </td>
+                        <td>
+                            @Html.DisplayFor(model => item.RegId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.SubId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Semester)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hours)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade)
+                        </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Term_Grade)
+                         </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.RegId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.RegId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.RegId">Delete</a>
+                        </td>
+                    </tr>
+}
+                </tbody>
+        </table>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2"></div>
+    </div>
+</div>

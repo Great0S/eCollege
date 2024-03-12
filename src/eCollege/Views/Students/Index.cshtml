@@ -1,0 +1,96 @@
+﻿@model IEnumerable<eCollege.Data.Student>
+
+@{
+    ViewData["Title"] = "إدارة الطلاب";
+}
+<div dir="rtl" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid">
+        <div class="mdc-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdl-color--teal sec-bar">
+            <h3>
+                إدارة الطلاب
+            </h3>
+        </div>
+        <hr class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" />
+        <p class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--accent mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-action="Create">إضافة طالب جديد</a>
+            <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--accent mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-controller="Fees" asp-action="Create">إضافة رسوم دراسية</a>
+            <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--accent mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-controller="Scores" asp-action="Create">إضافة النتيجة</a>
+        </p>
+        <hr class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" />
+    </div>
+    <div class="mdc-layout-grid">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp is-upgraded" data-upgraded="MaterialDataTable">
+            <thead class="mdl-color--purple"  style="color:white">
+                <tr>
+                    <th>
+                        المعرف
+                    </th>
+                    <th>
+                        رقم التسجيل
+                    </th>
+                    <th>
+                        الاسم
+                    </th>
+                    <th>
+                        كلمة السر
+                    </th>
+                    <th>
+                        العنوان
+                    </th>
+                    <th>
+                        الجنس
+                    </th>
+                    <th>
+                        الديانة
+                    </th>
+                    <th>الهاتف</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(Modelitem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Religon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.Id">إزالة</a> |
+                            <a asp-action="Edit" asp-route-id="@item.Id">تعديل</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">التفاصيل</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

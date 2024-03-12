@@ -1,0 +1,70 @@
+﻿@model IEnumerable<eCollege.Data.Score>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div dir="rtl" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid">
+        <div class="mdc-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdl-color--blue-grey sec-bar">
+            <h3>
+                النتيجة
+            </h3>
+        </div>
+        <hr class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" />
+    </div>
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"></div>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp is-upgraded" style="width:100%" data-upgraded="MaterialDataTable">
+            <thead class="mdl-color--blue" style="color:white">
+                <tr>
+                    <th colspan="4">السمستر الخامس</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>
+                        المقرر
+                    </th>
+                    <th>
+                        الساعات المعتمدة
+                    </th>
+                    <th>
+                        الدرجة
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td> 
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hours)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>
+                        المعدل الفصلي
+                    </th>
+                    @foreach(var item in Model) { 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Term_Grade)
+                    </td>
+                    }
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+    </div>
+</div>

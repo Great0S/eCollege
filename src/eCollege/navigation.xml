@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NavNode key="Home"  parentKey="RootNode" controller="Home" action="Index" text="Home" isRootNode="true">
+  <Children>
+    <NavNode key="About" parentKey="RootNode" controller="Home" action="About" text="About">
+      <Children />
+    </NavNode>
+    <NavNode key="Event" parentKey="RootNode" controller="Home" action="Event" text="Events">
+      <Children />
+    </NavNode>
+    <NavNode key="TimeTables" parentKey="RootNode" controller="TimeTables" action="Index" text="TimeTable" viewRoles="Administerator,Student,Registerator">
+      <Children />
+    </NavNode>
+    <NavNode key="Scores" parentKey="RootNode" controller="Scores" action="Index" text="Score" viewRoles="Registerator">
+      <Children />
+    </NavNode>
+    <NavNode key="Scores" parentKey="RootNode" controller="Scores" action="StudentIndex" text="StudentScore" viewRoles="Registerator">
+      <Children />
+    </NavNode>
+    <NavNode key="Employees" parentKey="RootNode" controller="Employees" action="Index" text="Employees" viewRoles="Registerator">
+      <Children />
+    </NavNode>
+  </Children>
+</NavNode>

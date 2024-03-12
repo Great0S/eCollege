@@ -1,0 +1,22 @@
+﻿@model eCollege.Data.Student
+
+@{
+    ViewData["Title"] = "حذف الطالب";
+}
+
+<div dir="rtl">
+    <h3>الرجاء التأكيد على حذف الطالب @Html.DisplayFor(model => model.Name) ؟</h3>
+    <div>
+        <hr />
+        <form asp-action="Delete">
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <input type="submit" value="حذف" style="font-family:'Segoe UI'" class="mdc-button mdc-button--raised mdc-ripple-surface mdc-button--primary" data-mdc-auto-init="MDCRipple" />
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                    <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-action="Index">الغاء</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

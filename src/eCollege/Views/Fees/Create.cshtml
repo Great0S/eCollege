@@ -1,0 +1,49 @@
+﻿@model eCollege.Data.Fees
+
+@{
+    ViewData["Title"] = "إنشاء";
+}
+
+<div dir="rtl" class="mdc-layout-grid">
+    <form asp-action="Create" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-elevation--z3">
+                <div class="mdc-layout-grid">
+                    <div class="mdc-card mdc-layout-grid__cell--span-12 mdc-theme--accent-bg sec-bar">
+                        <h3>إضافة رسوم دراسية</h3>
+                    </div>
+                    <hr class="mdc-layout-grid__cell--span-12" />
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5" style="width:100%">
+                        <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="RegisterFee" class="mdc-textfield__label">رسوم التسجيل</label>
+                            <input asp-for="RegisterFee" class="mdc-textfield__input" />
+                        </div>
+                    </section>
+                    <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5" style="width:100%">
+                        <div class="mdc-textfield mdc-textfield--upgraded" style="width:100%" data-mdc-auto-init="MDCTextfield">
+                            <label asp-for="StudyFee" class="mdc-textfield__label">رسوم الدراسة</label>
+                            <input asp-for="StudyFee" class="mdc-textfield__input" />
+                        </div>
+                    </section>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <div class="mdc-layout-grid">
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2" style="width:100%">
+                                <input type="submit" value="إضافة" style="font-family:'Segoe UI'" class="mdc-button mdc-button--primary mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" />
+                            </div>
+                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3" style="width:100%">
+                                <a asp-action="Index" style="font-family:'Segoe UI'" class="mdc-button mdc-button--primary mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple">إلغاء</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

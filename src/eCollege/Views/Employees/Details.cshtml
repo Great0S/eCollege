@@ -1,0 +1,67 @@
+﻿@model eCollege.Data.Employees
+
+@{
+    ViewData["Title"] = "التفاصيل";
+}
+<div dir="rtl" class="mdc-layout-grid mdc-elevation--z3">
+    <div class="mdc-card mdc-layout-grid__cell--span-12 mdl-color--amber sec-bar">
+        <h3>تفاصيل الموظف @Html.DisplayFor(Model => Model.Name)</h3>
+    </div>
+    <hr class="mdc-layout-grid__cell--span-12" />
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 flex">
+        <div class="mdc-grid-list">
+            <ul class="mdc-grid-list__tiles">
+                <li class="mdc-grid-tile">
+                    <h4> المعرف</h4>
+                    <p>@Html.DisplayFor(Model => Model.Id)</p>
+                </li>
+                <li class="mdc-grid-tile">
+                    <h4>الأسم</h4>
+                    <p>@Html.DisplayFor(model => model.Name)</p>
+                </li>
+            </ul>
+        </div>
+        <div class="mdc-grid-list">
+            <ul class="mdc-grid-list__tiles">
+                <li class="mdc-grid-tile">
+                    <h4>اسم المستخدم</h4>
+                    <p>@Html.DisplayFor(model => model.Username)</p>
+                </li>
+                <li class="mdc-grid-tile">
+                    <h4>كلمة السر</h4>
+                    <p>@Html.DisplayFor(model => model.Password)</p>
+                </li>
+            </ul>
+        </div>
+        <div class="mdc-grid-list">
+            <div class="mdc-grid-list__tiles">
+                <div class="mdc-grid-tile">
+                    <h4>البريد الإلكتروني</h4>
+                    <p>@Html.DisplayFor(model => model.Email)</p>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-grid-list">
+            <ul class="mdc-grid-list__tiles">
+                <li class="mdc-grid-tile">
+                    <h4>العنوان</h4>
+                    <p>
+                        @Html.DisplayFor(model => model.Address)
+                    </p>
+                </li>
+                <li class="mdc-grid-tile">
+                    <h4>الهاتف</h4>
+                    <p>@Html.DisplayFor(model => model.Phone)</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" style="text-align:center" dir="rtl">
+        <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--primary mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-action="Edit" asp-route-id="@Model.Id">تعديل</a>
+
+        <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--raised mdc-ripple-surface mdc-layout-grid__cell mdc-layout-grid__cell--span-2" data-mdc-auto-init="MDCRipple" asp-action="Index">الرجوع الى القائمة</a>
+    </div>
+</div>

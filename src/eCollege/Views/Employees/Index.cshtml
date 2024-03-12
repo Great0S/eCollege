@@ -1,0 +1,86 @@
+﻿@model IEnumerable<eCollege.Data.Employees>
+
+@{
+    ViewData["Title"] = "إدارة الموظفين";
+}
+<div dir="rtl" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid">
+        <div class="mdc-card mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdl-color--grey sec-bar">
+            <h3>
+                إدارة الموظفين</h3>
+            </div>
+                <hr class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" />
+                <p class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <a style="font-family:'Segoe UI';text-decoration-line:none" class="mdc-button mdc-button--accent mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple" asp-action="Create">إضافة موظف جديد</a>
+                </p>
+        </div>
+        <div class="mdc-layout-grid">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp is-upgraded" data-upgraded="MaterialDataTable">
+                <thead class="mdl-color--purple" style="color:white">
+                    <tr>
+                        <th>
+                            المعرف
+                        </th>
+                        <th>
+                            الاسم
+                        </th>
+                        <th>
+                            اسم المستخدم
+                        </th>
+                        <th>
+                            كلمة السر
+                        </th>
+                        <th>
+                            البريد الإلكتروني
+                        </th>
+                        <th>
+                            العنوان
+                        </th>
+                        <th>
+                            الهاتف
+                        </th>
+                        <th>
+                            الوظيفة
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Password)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Job)
+                            </td>
+                            <td>
+                                <a style="text-decoration-line:none" asp-action="Delete" asp-route-id="@item.Id">إزالة</a> |
+                                <a style="text-decoration-line:none" asp-action="Edit" asp-route-id="@item.Id">تعديل</a> |
+                                <a style="text-decoration-line:none" asp-action="Details" asp-route-id="@item.Id">التفاصيل</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

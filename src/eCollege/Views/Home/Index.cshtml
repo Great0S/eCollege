@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - eCollege</title>
+
+    <style>
+        body, input, label {
+            font-family: Roboto,'Segoe UI';
+        }
+
+        body, input, label, header, h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Kufi Arabic';
+        }
+
+        html {
+            font-size: 17px;
+        }
+    </style>
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/crosscover.css" rel="stylesheet" />
+    <link href="~/css/material-components-web.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="crosscover">
+        <div class="crosscover-overlay">
+            <div class="crosscover-island">
+                <h2 class="" id="Medium">جامعة الجزيرة</h2>
+                <h1 class="crosscover-title" id="Medium">كلية العلوم الرياضية والحاسوب</h1>
+                <h2 class="crosscover-description" id="Medium">الماضي الحاضر المستقبل</h2>    <!---animated infinite bounce-->
+                <a asp-action="Event" asp-controller="Home" style="font-family:'Segoe UI';text-decoration-line:none;color:white" class="mdc-button mdc-button--primary mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple">إبدأ</a>
+            </div>
+        </div>
+
+        <div class="crosscover-list">
+            <div class="crosscover-item">
+                <img src="~/images/uofg14.png" alt="image01" />
+            </div>
+            <div class="crosscover-item">
+                <img src="~/images/uofg13.png" alt="image02" />
+            </div>
+            <div class="crosscover-item">
+                <img src="~/images/uofg9.png" alt="image03" />
+            </div>
+            <div class="crosscover-item">
+                <img src="~/images/uofg2.png" alt="image04" />
+            </div>
+            <div class="crosscover-item">
+                <img src="~/images/uofg10.png" alt="image05" />
+            </div>
+            <div class="crosscover-item">
+                <img src="~/images/uofg15.png" alt="image06" />
+            </div>
+            <div class="crosscover-item">
+                <img src="~/images/uofg16.png" alt="image07" />
+            </div>
+        </div>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/crosscover.js"></script>
+    <script src="~/js/material-components-web.js"></script>
+    <script>
+        $(".crosscover").crosscover({
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            interval: 5000,
+            startIndex: 0,
+            autoPlay: true,
+            dotsNav: false,
+            controller: false,
+            controllerClass: 'crosscover-controller',
+            prevClass: 'crosscover-prev',
+            nextClass: 'crosscover-next',
+            playerClass: 'crosscover-player',
+            playerInnerHtml: '<span class="crosscover-icon-player"></span>',
+            prevInnerHtml: '<span class="crosscover-icon-prev"></span>',
+            nextInnerHtml: '<span class="crosscover-icon-next"></span>'
+        });
+    </script>
+</body>
+</html>
